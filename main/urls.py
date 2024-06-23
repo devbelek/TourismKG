@@ -1,5 +1,6 @@
 from django.urls import path
-from .views import ProfileView
+from .views import *
+
 
 profile_list = ProfileView.as_view({
     'get': 'list',
@@ -13,7 +14,11 @@ profile_detail = ProfileView.as_view({
     'delete': 'destroy'
 })
 
+
 urlpatterns = [
     path('', profile_list, name='profile-list'),
     path('profiles/<int:pk>/', profile_detail, name='profile-detail'),
+
+    path('tours/', TourCreateView.as_view(), name='tour-list-create'),
+    path('tours/<int:pk>/', TourDetailView.as_view(), name='tour-detail'),
 ]
