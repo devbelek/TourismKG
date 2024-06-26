@@ -67,3 +67,4 @@ class Reservation(models.Model):
 
     def __str__(self):
         return f'Бронирование от {self.user}'
+
