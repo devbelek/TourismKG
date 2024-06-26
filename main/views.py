@@ -4,8 +4,15 @@ from .serializers import *
 
 
 from django.urls import reverse_lazy
+<<<<<<< HEAD
 
 from django.contrib.auth.mixins import LoginRequiredMixin
+=======
+from django.views.generic.edit import CreateView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from .models import Tour
+from .forms import TourForm
+>>>>>>> 4ff5cd637c84a2065e10f50dc2943038fa7369e3
 
 
 class ProfileView(viewsets.ModelViewSet):
@@ -16,7 +23,11 @@ class ProfileView(viewsets.ModelViewSet):
 class TourCreateView(generics.ListCreateAPIView):
     queryset = Tour.objects.all()
     serializer_class = TourSerializer
+<<<<<<< HEAD
     permission_classes = [permissions.IsAdminUser]
+=======
+    permission_classes = [permissions.IsAuthenticated]
+>>>>>>> 4ff5cd637c84a2065e10f50dc2943038fa7369e3
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
@@ -24,6 +35,7 @@ class TourCreateView(generics.ListCreateAPIView):
 class TourDetailView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Tour.objects.all()
     serializer_class = TourSerializer
+<<<<<<< HEAD
     permission_classes = [permissions.IsAdminUser]
 
     def retrieve(self, request, *args, **kwargs):
@@ -42,3 +54,6 @@ class ReservationCreateAPIView(generics.CreateAPIView):
     serializer_class = ReservationSerializer
     permission_classes = [permissions.IsAuthenticated]
 
+=======
+    permission_classes = [permissions.IsAuthenticated]
+>>>>>>> 4ff5cd637c84a2065e10f50dc2943038fa7369e3

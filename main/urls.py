@@ -21,6 +21,7 @@ urlpatterns = [
 
     path('tours/', TourCreateView.as_view(), name='tour-list-create'),
     path('tours/<int:pk>/', TourDetailView.as_view(), name='tour-detail'),
+<<<<<<< HEAD
 
     path('tour_photos/', TourhotosView.as_view({'get': 'list', 'post': 'create'}),
          name='tour_photos_list'),
@@ -33,4 +34,6 @@ urlpatterns = [
              TourhotosView.as_view({'get': 'retrieve', 'put': 'update', 'delete': 'destroy'}),
              name='reservation_create_detail'),
 
+=======
+>>>>>>> 4ff5cd637c84a2065e10f50dc2943038fa7369e3
 ]
